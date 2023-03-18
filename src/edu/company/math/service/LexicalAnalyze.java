@@ -7,7 +7,7 @@ import edu.company.math.model.LexemeType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Analyze {
+public class LexicalAnalyze {
 
     public List<Lexeme> lexAnalyze(String expText) {
         ArrayList<Lexeme> lexemes = new ArrayList<>();
@@ -36,8 +36,9 @@ public class Analyze {
                 lexemes.add(new Lexeme(LexemeType.NUMBER, sb.toString()));
             } else if (c != ' ') {
                 throw new UnexpectedCharacterException("Unexpected symbol \"" + c + "\"");
+            } else {
+                pos++;
             }
-            pos++;
         }
 
         lexemes.add(new Lexeme(LexemeType.EOF, ""));

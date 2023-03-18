@@ -18,11 +18,11 @@ public class Lexeme {
         this.value = value.toString();
     }
 
-    public LexemeType getLexemeType() {
+    public LexemeType getType() {
         return lexemeType;
     }
 
-    public void setLexemeType(LexemeType lexemeType) {
+    public void setType(LexemeType lexemeType) {
         this.lexemeType = lexemeType;
     }
 

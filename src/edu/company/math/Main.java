@@ -2,7 +2,9 @@ package edu.company.math;
 
 
 import edu.company.math.model.Lexeme;
-import edu.company.math.service.Analyze;
+import edu.company.math.model.LexemeBuffer;
+import edu.company.math.service.LexicalAnalyze;
+import edu.company.math.service.SyntaxAnalyze;
 
 import java.util.List;
 
@@ -19,12 +21,13 @@ import java.util.List;
 //
 public class Main {
 
-    private static final Analyze analyze = new Analyze();
+    private static final LexicalAnalyze lexAnalyze = new LexicalAnalyze();
+    private static final SyntaxAnalyze syntaxAnalyze = new SyntaxAnalyze();
 
     public static void main(String[] args) {
-        String expressionText = "222222 + 4 * 2 + (2 + 2) - 3";
-        List<Lexeme> lexemes = analyze.lexAnalyze(expressionText);
-
-        System.out.println(lexemes);
+        String expressionText = "2 + (4 + 2) + 2 + 2 - 3";
+        List<Lexeme> lexemes = lexAnalyze.lexAnalyze(expressionText);
+        int expr = syntaxAnalyze.expr(new LexemeBuffer(lexemes));
+        System.out.println("Result: " + expr);
     }
 }
